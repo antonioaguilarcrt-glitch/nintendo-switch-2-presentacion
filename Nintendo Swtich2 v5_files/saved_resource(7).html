@@ -1,0 +1,292 @@
+
+<!-- saved from url=(0012)about:srcdoc -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Los Números No Mienten</title>
+    <link href="https://artifacts-cdn.chatglm.site/https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&amp;family=Montserrat:wght@400;600;700&amp;display=swap" rel="stylesheet">
+    <link href="https://artifacts-cdn.chatglm.site/https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://artifacts-cdn.chatglm.site/https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #121212 0%, #1a1a2e 100%);
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            padding: 40px 70px 20px;
+        }
+        .title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 40px;
+            font-weight: 900;
+            background: linear-gradient(90deg, #ff006e, #8338ec);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 10px;
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 0 70px 40px;
+        }
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 25px;
+            flex-grow: 1;
+        }
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(131, 56, 236, 0.3);
+            transition: transform 0.3s ease;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        .stat-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .stat-icon {
+            font-size: 36px;
+            margin-right: 15px;
+            color: #8338ec;
+        }
+        .stat-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #f8f9fa;
+        }
+        .stat-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-grow: 1;
+        }
+        .stat-number {
+            font-size: 64px;
+            font-weight: 900;
+            background: linear-gradient(90deg, #ff006e, #8338ec);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1;
+        }
+        .stat-description {
+            font-size: 20px;
+            line-height: 1.4;
+            color: #d1d1d1;
+            max-width: 60%;
+        }
+        .chart-container {
+            width: 120px;
+            height: 120px;
+            position: relative;
+        }
+        .highlight {
+            color: #ff006e;
+            font-weight: 600;
+        }
+        .neon-glow {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            filter: blur(40px);
+            z-index: -1;
+        }
+        .neon-glow-1 {
+            top: -50px;
+            right: -50px;
+            background: radial-gradient(circle, rgba(255, 0, 110, 0.3) 0%, rgba(255, 0, 110, 0) 70%);
+        }
+        .neon-glow-2 {
+            bottom: -50px;
+            left: -50px;
+            background: radial-gradient(circle, rgba(58, 134, 255, 0.3) 0%, rgba(58, 134, 255, 0) 70%);
+        }
+    </style>
+<style>
+				::-webkit-scrollbar {
+					display: none;
+				}
+				body {
+					-ms-overflow-style: none;
+					scrollbar-width: none;
+					overflow: hidden;
+					transform: scale(1);
+					transform-origin: center 0;
+				}
+			</style></head>
+<body>
+    <div class="slide">
+        <div class="header">
+            <h1 class="title">Los Números No Mienten</h1>
+        </div>
+        <div class="content">
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <i class="material-icons stat-icon">phone_android</i>
+                        <h2 class="stat-title">Gaming Portátil</h2>
+                    </div>
+                    <div class="stat-content">
+                        <div class="chart-container">
+                            <canvas id="chart1" width="120" height="120" style="display: block; box-sizing: border-box; height: 120px; width: 120px;"></canvas>
+                        </div>
+                        <p class="stat-description">de La nueva generación Gamer prefiere consolas <span class="highlight">portátiles</span> para social gaming</p>
+                    </div>
+                    <div class="neon-glow neon-glow-1"></div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <i class="material-icons stat-icon">create</i>
+                        <h2 class="stat-title">Creación de Contenido</h2>
+                    </div>
+                    <div class="stat-content">
+                        <div class="chart-container">
+                            <canvas id="chart2" width="120" height="120" style="display: block; box-sizing: border-box; height: 120px; width: 120px;"></canvas>
+                        </div>
+                        <p class="stat-description">de La nueva generación Gamer valora la capacidad de <span class="highlight">crear y compartir</span> contenido</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <i class="material-icons stat-icon">eco</i>
+                        <h2 class="stat-title">Sostenibilidad</h2>
+                    </div>
+                    <div class="stat-content">
+                        <div class="chart-container">
+                            <canvas id="chart3" width="120" height="120" style="display: block; box-sizing: border-box; height: 120px; width: 120px;"></canvas>
+                        </div>
+                        <p class="stat-description">de La nueva generación Gamer está dispuesto a pagar más por productos <span class="highlight">sostenibles</span></p>
+                    </div>
+                    <div class="neon-glow neon-glow-2"></div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <i class="material-icons stat-icon">history</i>
+                        <h2 class="stat-title">Retrocompatibilidad</h2>
+                    </div>
+                    <div class="stat-content">
+                        <div class="chart-container">
+                            <canvas id="chart4" width="120" height="120" style="display: block; box-sizing: border-box; height: 120px; width: 120px;"></canvas>
+                        </div>
+                        <p class="stat-description">de La nueva generación Gamer dice que la <span class="highlight">retrocompatibilidad</span> es crucial al comprar nueva consola</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Chart 1 - 90%
+        const ctx1 = document.getElementById('chart1').getContext('2d');
+        new Chart(ctx1, {
+            type: 'doughnut',
+            data: {
+                datasets: [{
+                    data: [90, 10],
+                    backgroundColor: ['#ff006e', 'rgba(255, 255, 255, 0.1)'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                cutout: '70%',
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { enabled: false }
+                }
+            }
+        });
+
+        // Chart 2 - 78%
+        const ctx2 = document.getElementById('chart2').getContext('2d');
+        new Chart(ctx2, {
+            type: 'doughnut',
+            data: {
+                datasets: [{
+                    data: [78, 22],
+                    backgroundColor: ['#8338ec', 'rgba(255, 255, 255, 0.1)'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                cutout: '70%',
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { enabled: false }
+                }
+            }
+        });
+
+        // Chart 3 - 65%
+        const ctx3 = document.getElementById('chart3').getContext('2d');
+        new Chart(ctx3, {
+            type: 'doughnut',
+            data: {
+                datasets: [{
+                    data: [65, 35],
+                    backgroundColor: ['#3a86ff', 'rgba(255, 255, 255, 0.1)'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                cutout: '70%',
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { enabled: false }
+                }
+            }
+        });
+
+        // Chart 4 - 82%
+        const ctx4 = document.getElementById('chart4').getContext('2d');
+        new Chart(ctx4, {
+            type: 'doughnut',
+            data: {
+                datasets: [{
+                    data: [82, 18],
+                    backgroundColor: ['#ffbe0b', 'rgba(255, 255, 255, 0.1)'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                cutout: '70%',
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { enabled: false }
+                }
+            }
+        });
+    </script>
+
+</body></html>
